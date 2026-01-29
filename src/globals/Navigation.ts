@@ -43,7 +43,13 @@ export const Navigation: GlobalConfig = {
               name: 'label',
               type: 'text',
               required: true,
-              localized: true,
+            },
+            {
+              name: 'labelEs',
+              type: 'text',
+              admin: {
+                description: 'Spanish label (if different)',
+              },
             },
             {
               name: 'url',
