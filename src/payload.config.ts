@@ -69,9 +69,18 @@ export default buildConfig({
     push: true,
   }),
   localization: {
-    locales: ['en', 'es'],
+    locales: [
+      {
+        label: 'English',
+        code: 'en',
+      },
+      {
+        label: 'Español',
+        code: 'es',
+        fallbackLocale: 'en',
+      },
+    ],
     defaultLocale: 'en',
-    fallback: true,
   },
   upload: {
     limits: {
