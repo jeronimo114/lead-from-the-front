@@ -67,21 +67,11 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL,
     },
   }),
-  // Temporarily disabled - causing issues with postgres adapter
-  // localization: {
-  //   locales: [
-  //     {
-  //       label: 'English',
-  //       code: 'en',
-  //     },
-  //     {
-  //       label: 'Español',
-  //       code: 'es',
-  //     },
-  //   ],
-  //   defaultLocale: 'en',
-  //   fallback: true,
-  // },
+  localization: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   upload: {
     limits: {
       fileSize: 5000000, // 5MB
