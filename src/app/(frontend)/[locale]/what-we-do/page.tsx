@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { OurPillars, MentorsMentees, WhoWeServe, QuickFacts } from '@/components/sections'
 import { Container } from '@/components/ui'
 import { getPillars } from '@/lib/payload'
@@ -56,19 +57,34 @@ export default async function WhatWeDoPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      {/* Hero Section with Quick Facts box */}
-      <section className="bg-gradient-to-r from-white via-white to-primary-50 py-12 lg:py-20">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+      {/* Hero Section with full-width background and Quick Facts box */}
+      <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-nyc-street.jpg"
+            alt="New York City street"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Dark and Green Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/90 via-secondary-900/70 to-primary-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-transparent to-secondary-900/40" />
+
+        <Container className="relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-start py-12 lg:py-20">
             {/* Left content */}
             <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-2">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                 {hero.title}
               </h1>
-              <p className="text-xl md:text-2xl text-primary-500 italic mb-6">
+              <p className="text-xl md:text-2xl text-primary-400 italic mb-6">
                 {hero.titleAccent}
               </p>
-              <p className="text-secondary-600 leading-relaxed whitespace-pre-line">
+              <p className="text-white/90 leading-relaxed whitespace-pre-line text-lg max-w-xl">
                 {hero.description}
               </p>
             </div>
