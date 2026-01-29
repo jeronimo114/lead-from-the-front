@@ -24,13 +24,7 @@ export const Footer: GlobalConfig = {
               name: 'label',
               type: 'text',
               required: true,
-            },
-            {
-              name: 'labelEs',
-              type: 'text',
-              admin: {
-                description: 'Spanish label (if different)',
-              },
+              localized: true,
             },
             {
               name: 'url',
